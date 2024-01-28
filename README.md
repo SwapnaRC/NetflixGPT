@@ -1,8 +1,12 @@
 # Netflix GPT
 - create react app 
 - configuration of tailwind css
+- Header
+- Login Form
+- Sign up form
 
 # Feature we are going to build
+- Routing 
 - Login / Signup page 
     - Sign In/  Sign Up
     - Redirect to browse page 
