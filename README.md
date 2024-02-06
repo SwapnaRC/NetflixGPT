@@ -2,8 +2,11 @@
 - create react app 
 - configuration of tailwind css
 - Header
+- Routing
 - Login Form
 - Sign up form
+- Form Validation
+- useRef Hook
 
 # Feature we are going to build
 - Routing 
