@@ -1,25 +1,92 @@
 import React, { useRef, useState } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUSer } from "../utils/userSlice";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+
   const [isSignInform, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const handleToggleForm = () => {
     setIsSignInForm(!isSignInform);
   };
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
   const handleBtnClick = () => {
     // Validation for form data
-    const msg = checkValidData(
-      email.current.value,
-      password.current.value
-    );
-    console.log(msg, "msg");
-
+    const msg = checkValidData(email.current.value, password.current.value);
     setErrorMessage(msg);
+    if (msg) return;
+    // signup / sign in logic is here
+    if (!isSignInform) {
+      // Signup logic is here
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          updateProfile(user, {
+            displayName: "Swapna",
+            photoURL:
+              "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
+          })
+            .then(() => {
+              const { uid, displayName, email, photoURL } = auth.currentUser;
+              dispatch(
+                addUSer({
+                  uid: uid,
+                  displayName: displayName,
+                  email: email,
+                  photoURL: photoURL,
+                })
+              );
+              // Profile updated!
+              navigate("/browse");
+            })
+            .catch((error) => {
+              // An error occurred
+              setErrorMessage(error.message);
+            });
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    } else {
+      // Sign in logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/browse");
+        })
+        .catch((error) => {
+          console.log(error);
+          setErrorMessage("Invalid Email Id or password");
+        });
+    }
   };
   return (
     <div className=" overflow-auto">
@@ -39,6 +106,7 @@ const Login = () => {
         </h1>
         {!isSignInform && (
           <input
+            ref={name}
             type="text"
             placeholder="Full Name"
             className="p-4 my-2 w-full bg-gray-700 border-white opacity-100 rounded-lg"

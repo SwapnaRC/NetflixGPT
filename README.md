@@ -1,3 +1,5 @@
+Deployed Netflix GPT here : https://netflixgpt-822ba.web.app/
+
 # Netflix GPT
 - create react app 
 - configuration of tailwind css
@@ -7,6 +9,13 @@
 - Sign up form
 - Form Validation
 - useRef Hook
+- Firebase setup
+- deploying our app to production
+- Authentication
+- Creating Signup User Account
+- Implement signin user api
+- Created Redux store with userSlice
+- Signout feature
 
 # Feature we are going to build
 - Routing 
