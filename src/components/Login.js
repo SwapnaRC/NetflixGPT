@@ -9,6 +9,7 @@ import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUSer } from "../utils/userSlice";
+import {LOGIN_BACKGROUND_IMAGE, PHOTO_URL} from '../utils/constants'
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -41,8 +42,7 @@ const Login = () => {
           console.log(user);
           updateProfile(user, {
             displayName: "Swapna",
-            photoURL:
-              "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
+            photoURL: PHOTO_URL
           })
             .then(() => {
               const { uid, displayName, email, photoURL } = auth.currentUser;
@@ -89,7 +89,7 @@ const Login = () => {
       <div className="absolute  ">
         <img
           alt="background-login"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/32c47234-8398-4a4f-a6b5-6803881d38bf/eed3a573-8db7-47ca-a2ce-b511e0350439/IN-en-20240122-popsignuptwoweeks-perspective_alpha_website_small.jpg"
+          src={LOGIN_BACKGROUND_IMAGE}
         />
       </div>
       <form
