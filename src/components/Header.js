@@ -1,18 +1,46 @@
-import React from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import React, { useEffect } from "react";
 import { LOGO_URL } from "../utils/constants";
+import { addUSer, removeUSer } from "../utils/userSlice";
+import { auth } from "../utils/firebase";
 import DropDownBox from "./DropDownBox";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
   const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in
+        const { uid, displayName, email, photoURL } = user;
+        dispatch(
+          addUSer({
+            uid: uid,
+            displayName: displayName,
+            email: email,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse")
+      } else {
+        // User is signed out
+        dispatch(removeUSer());
+        navigate("/")
+      }
+    });
+  }, []);
   return (
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between w-full">
       <img src={LOGO_URL} alt="netflix-logo" className="w-44" />
-      {/* <img
-        src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg"
-        alt="user-logo"
-        className="w-8 h-8"
-      /> */}
-      {user && <DropDownBox UserDisplayName={user.displayName ? user.displayName : user.email} />}
+      {user && (
+        <DropDownBox
+          UserDisplayName={user.displayName ? user.displayName : user.email}
+        />
+      )}
     </div>
   );
 };

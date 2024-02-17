@@ -7,13 +7,11 @@ import {
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUSer } from "../utils/userSlice";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [isSignInform, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -56,8 +54,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              // Profile updated!
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -80,7 +76,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           console.log(error);
