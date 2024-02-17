@@ -3,8 +3,8 @@ import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 
-const DropDownBox = () => {
-    const navigate = useNavigate()
+const DropDownBox = ({ UserDisplayName }) => {
+  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const handleDropDownToggle = () => {
     setShowDropdown(!showDropdown);
@@ -13,11 +13,11 @@ const DropDownBox = () => {
   const handleSignout = () => {
     signOut(auth)
       .then(() => {
-        navigate('/')
+        navigate("/");
         // Sign-out successful.
       })
       .catch((error) => {
-        navigate("/error")
+        navigate("/error");
         // An error happened.
       });
   };
@@ -32,6 +32,7 @@ const DropDownBox = () => {
           aria-expanded="true"
           aria-haspopup="true"
         >
+          {UserDisplayName}
           <img
             src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg"
             alt="user-logo"
@@ -80,16 +81,16 @@ const DropDownBox = () => {
             </a>
 
             {/* <form method="POST" action="#" role="none"> */}
-              <button
-                onClick={handleSignout}
-                type="submit"
-                className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-                role="menuitem"
-                tabindex="-1"
-                id="menu-item-3"
-              >
-                Sign out
-              </button>
+            <button
+              onClick={handleSignout}
+              type="submit"
+              className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-3"
+            >
+              Sign out
+            </button>
             {/* </form> */}
           </div>
         </div>

@@ -4,7 +4,6 @@ import DropDownBox from "./DropDownBox";
 import { useSelector } from "react-redux";
 const Header = () => {
   const user = useSelector((store) => store.user);
-  console.log(user, 'user')
   return (
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between w-full">
       <img src={LOGO_URL} alt="netflix-logo" className="w-44" />
@@ -13,7 +12,7 @@ const Header = () => {
         alt="user-logo"
         className="w-8 h-8"
       /> */}
-      {user && <DropDownBox />}
+      {user && <DropDownBox UserDisplayName={user.displayName ? user.displayName : user.email} />}
     </div>
   );
 };
