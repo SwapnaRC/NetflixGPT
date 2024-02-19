@@ -40,7 +40,6 @@ const Header = () => {
       <img src={LOGO_URL} alt="netflix-logo" className="w-44" />
       {user && (
         <DropDownBox
-          UserDisplayName={user.displayName ? user.displayName : user.email}
         />
       )}
     </div>
