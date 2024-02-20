@@ -13,3 +13,6 @@ export const LOGIN_BACKGROUND_IMAGE =
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MzkyYmNmMGQxYTY4YzVhYTQyYTFmOWRkOTg2M2E1NyIsInN1YiI6IjY1ZDA5OTEyZmQ2MzAwMDE4NmNhNGQ0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxFGybGicuTDxFkoAmCeKKSr8ySbP46Ax8GbfrFS6o'
     }
   };
+
+  export const IMAGE_URL= "https://image.tmdb.org/t/p/w500"
+  
