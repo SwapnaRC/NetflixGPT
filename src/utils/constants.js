@@ -24,3 +24,5 @@ export const SUPPORTED_LANGUAGE = [
   { identifier: "kannada", name: "Kannada"},
   { identifier: "spanish", name: "Spanish"},
 ]
+
+export const OPENAI_API_KEY   = "Cant share because of privacy"
