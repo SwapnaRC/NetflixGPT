@@ -33,8 +33,12 @@ Deployed Netflix GPT here : https://netflixgpt-822ba.web.app/
 - Tailwind Classes to make Main Container look awesome
 - Build secondary container
 - TMDB img url
-- custom hooks
+- custom hooks for api calls
+- GPT search page 
+- GPT Search Bar
+- Multi - language  feature 
 
+ 
 # Feature we are going to build
 - Routing 
 - Login / Signup page 
