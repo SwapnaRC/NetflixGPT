@@ -19,10 +19,13 @@ export const API_OPTIONS = {
 export const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 export const SUPPORTED_LANGUAGE = [
-  { identifier: "en", name: "English"},
-  { identifier: "hindi", name: "Hindi"},
-  { identifier: "kannada", name: "Kannada"},
-  { identifier: "spanish", name: "Spanish"},
-]
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "kannada", name: "Kannada" },
+  { identifier: "spanish", name: "Spanish" },
+];
 
-export const OPENAI_API_KEY   = "Cant share because of privacy"
+export const OPENAI_API_KEY =
+  "Bearer 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";
+
+export const GEN_AI_API_KEY = "AIzaSyBFaW3cV2hWvtfO8enAiGS_g1e8FKL1xao";

@@ -1,5 +1,5 @@
-const Error = () => {
-  return <div>Error is in the page</div>;
+const Error = ({error}) => {
+  return <div>Error is in the page : {error}</div>;
 };
 
 export default Error;

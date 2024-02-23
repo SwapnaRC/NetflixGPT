@@ -15,7 +15,7 @@ const Body = () => {
     },
     {
       path: "/error",
-      element: <Error />,
+      element: <Error error={"Error is there in this page"} />,
     },
   ]);
 
