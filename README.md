@@ -29,7 +29,7 @@ Deployed Netflix GPT here : https://netflixgpt-822ba.web.app/
 - Planning for MainContauiner & secondary container
 - Fetch Data for Trailer Video
 - Update Store with Trailer Video Data
-- Embedded the Yotube video and make it autoplay and mute
+- Embedded the Youtube video and make it autoplay and mute
 - Tailwind Classes to make Main Container look awesome
 - Build secondary container
 - TMDB img url
