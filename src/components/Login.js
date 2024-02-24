@@ -39,7 +39,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
           updateProfile(user, {
             displayName: "Swapna",
             photoURL: PHOTO_URL
@@ -75,7 +74,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           console.log(error);

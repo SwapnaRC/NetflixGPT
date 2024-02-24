@@ -3,7 +3,14 @@ import { IMAGE_URL } from "../utils/constants";
 const MovieCard = ({ posterPath }) => {
   return (
     <div className="w-48 pr-4">
-      <img alt="movie-poster" src={IMAGE_URL + posterPath} />
+      <img
+        alt="movie-poster"
+        src={
+          posterPath !== null
+            ? IMAGE_URL + posterPath
+            : "https://www.prokerala.com/movies/assets/img/no-poster-available.webp"
+        }
+      />
     </div>
   );
 };
