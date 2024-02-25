@@ -13,8 +13,8 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer AUTH_KEY_tOKEN" },
+    Authorization: process.env.REACT_APP_TMDB_KEY,
+  },
 };
 
 export const IMAGE_URL = "https://image.tmdb.org/t/p/w400";
@@ -26,13 +26,13 @@ export const SUPPORTED_LANGUAGE = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const GEN_AI_API_KEY = "cant share bcz of privacy constant";
-export  const generation_config = {
-  "candidate_count": 1,
-  "max_output_tokens": 256,
-  "temperature": 1.0,
-  "top_p": 0.7,
-}
+export const GEN_AI_API_KEY = process.env.REACT_APP_GEN_AI_KEY;
+export const generation_config = {
+  candidate_count: 1,
+  max_output_tokens: 256,
+  temperature: 1.0,
+  top_p: 0.7,
+};
 export const safetySettings = [
   {
     category: HarmCategory.HARM_CATEGORY_HARASSMENT,

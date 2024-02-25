@@ -24,3 +24,5 @@ yarn-error.log*
 
 # firebase deployment and hosting
 .firebase\hosting.YnVpbGQ.cache
+
+.env
