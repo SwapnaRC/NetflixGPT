@@ -37,7 +37,15 @@ Deployed Netflix GPT here : https://netflixgpt-822ba.web.app/
 - GPT search page 
 - GPT Search Bar
 - Multi - language  feature 
-
+- Get gen AI Api Key
+- Gpt Search API Call
+- fetched gptMoviesSuggestions from TMDB
+- created gptSlice added data
+- Resused Movie List component to make movie suggestion container
+- Memoization
+- Added .env file
+- Adding .env file to gitignore
+- Made our Site Responsive
  
 # Feature we are going to build
 - Routing 
