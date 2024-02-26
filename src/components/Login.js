@@ -9,7 +9,7 @@ import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUSer } from "../utils/userSlice";
-import {LOGIN_BACKGROUND_IMAGE, PHOTO_URL} from '../utils/constants'
+import { LOGIN_BACKGROUND_IMAGE, PHOTO_URL } from "../utils/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: "Swapna",
-            photoURL: PHOTO_URL
+            photoURL: PHOTO_URL,
           })
             .then(() => {
               const { uid, displayName, email, photoURL } = auth.currentUser;
@@ -82,9 +82,9 @@ const Login = () => {
     }
   };
   return (
-    <div className=" overflow-auto">
+    <div className=" overflow-auto bg-black">
       <Header />
-      <div className="absolute  ">
+      <div className="absolute md:visible  invisible ">
         <img
           alt="background-login"
           src={LOGIN_BACKGROUND_IMAGE}
@@ -92,7 +92,7 @@ const Login = () => {
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute p-12  bg-black opacity-85 w-4/12 mt-10  mx-auto right-0 left-0 text-white"
+        className="absolute p-12 bg-black opacity-85 md:w-4/12  w-full md:mt-10 mt-3 mx-auto right-0 left-0 text-white"
       >
         <h1 className="font-bold text-4xl py-4">
           {isSignInform ? "Sign In" : "Sign Up"}
